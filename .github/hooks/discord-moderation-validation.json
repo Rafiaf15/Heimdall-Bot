@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "node scripts/hook-validate-on-change.mjs",
+        "cwd": "${workspaceFolder}",
+        "timeout": 60
+      }
+    ]
+  }
+}

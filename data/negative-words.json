@@ -1,0 +1,51 @@
+{
+  "defaultLanguage": "id",
+  "languages": {
+    "id": {
+      "harassment": [
+        "bodoh", "tolol", "goblok", "kampungan",
+        "dungu", "bloon", "oon", "bego",
+        "gak waras", "sinting", "edan",
+        "kurang ajar"
+      ],
+      "insult": [
+        "payah", "pecundang",
+        "hina", "tidak berguna",
+        "lemah", "memalukan",
+        "brengsek", "bangsat", "keparat"
+      ],
+      "profanity": [
+        "anjing", "tai", "babi", "kontol",
+        "memek", "ngentot", "jancok",
+        "kampret", "keparat"
+      ],
+      "slang": [
+        "gblk", "bego", "tololll",
+        "bgst", "kntl", "mmk",
+        "smpah", "pecndang"
+      ]
+    },
+    "en": {
+      "harassment": [
+        "stupid", "idiot", "moron",
+        "dumb", "brainless", "imbecile",
+        "retarded", "clueless", "ignorant"
+      ],
+      "insult": [
+        "loser", "trash",
+        "pathetic", "useless", "worthless",
+        "disgusting", "failure", "scum",
+        "jerk", "bastard"
+      ],
+      "profanity": [
+        "fuck", "shit", "bitch", "asshole",
+        "dick", "pussy", "bastard",
+        "motherfucker", "damn"
+      ],
+      "slang": [
+        "wtf", "stfu", "lmao loser",
+        "fck", "sht", "btch", "azzhole"
+      ]
+    }
+  }
+}
