@@ -1,6 +1,36 @@
 # Polis Bot (Discord.js)
 
-Bot Discord.js untuk memfilter kata negatif dari file JSON, menghapus pesan, dan memberi warning ke user.
+🛡️ Heimdall - The All-Seeing Guardian
+Heimdall adalah bot moderasi Discord berbasis Node.js yang dirancang untuk menjaga integritas percakapan di dalam server. Terinspirasi dari sang penjaga gerbang Asgard, bot ini bekerja secara real-time untuk menyaring kata-kata negatif, konten toxic, dan menjaga komunitas tetap aman melalui sistem filter yang cerdas.
+
+🚀 Fitur Utama
+Real-time Profanity Filter: Mendeteksi dan menghapus pesan yang mengandung kata-kata kasar (Indonesia, Inggris, & Slang) secara instan.
+
+Privacy-First Warnings: Memberikan peringatan kepada pelanggar secara halus tanpa mengganggu estetika channel utama.
+
+Highly Configurable: Mendukung kustomisasi daftar kata terlarang, pengecualian channel (EXEMPT_CHANNELS), dan pengecualian peran (EXEMPT_ROLES).
+
+Unit Tested: Logika pemfilteran divalidasi menggunakan node:test untuk memastikan akurasi deteksi (menghindari false positives).
+
+Developer Friendly: Dibangun dengan discord.js v14 dan arsitektur kode yang bersih.
+
+🛠️ Tech Stack
+Runtime: Node.js
+
+Library: discord.js
+
+Testing: Native Node.js Test Runner
+
+Environment: Dotenv for secure configuration
+
+📋 Prasyarat
+Sebelum menjalankan Heimdall, pastikan kamu memiliki:
+
+Node.js v18.x atau lebih tinggi.
+
+Discord Bot Token (didapat dari Discord Developer Portal).
+
+Message Content Intent yang sudah diaktifkan di dashboard Discord.
 
 ## Setup
 
