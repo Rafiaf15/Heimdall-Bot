@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const configPath = path.join(process.cwd(), "data", "negative-words.json");
-const raw = fs.readFileSync(configPath, "utf8");
-const config = JSON.parse(raw);
+const negativeWordsPath = path.join(process.cwd(), "data", "negative-words.json");
+const negativeWordsRaw = fs.readFileSync(negativeWordsPath, "utf8");
+const config = JSON.parse(negativeWordsRaw);
 
 if (!config || typeof config !== "object") {
   throw new Error("Config must be a JSON object.");
@@ -32,3 +32,33 @@ for (const [language, categories] of Object.entries(config.languages)) {
 }
 
 console.log("[check-config] negative-words.json is valid.");
+
+const guildSettingsPath = path.join(process.cwd(), "data", "guild-settings.json");
+const guildSettingsRaw = fs.readFileSync(guildSettingsPath, "utf8");
+const guildSettings = JSON.parse(guildSettingsRaw);
+
+if (!guildSettings || typeof guildSettings !== "object") {
+  throw new Error("Guild settings must be a JSON object.");
+}
+
+if (!guildSettings.guilds || typeof guildSettings.guilds !== "object") {
+  throw new Error("Guild settings must contain a guilds object.");
+}
+
+for (const [guildId, value] of Object.entries(guildSettings.guilds)) {
+  if (!value || typeof value !== "object") {
+    throw new Error(`Guild settings for ${guildId} must be an object.`);
+  }
+
+  if (!Array.isArray(value.approvedChannelIds)) {
+    throw new Error(`Guild settings for ${guildId} must include approvedChannelIds array.`);
+  }
+
+  for (const channelId of value.approvedChannelIds) {
+    if (typeof channelId !== "string" || channelId.trim().length === 0) {
+      throw new Error(`Guild ${guildId} has invalid channel id entries.`);
+    }
+  }
+}
+
+console.log("[check-config] guild-settings.json is valid.");

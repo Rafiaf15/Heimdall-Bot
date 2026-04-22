@@ -29,3 +29,21 @@ test("findMatchedBlockedWords matches slang and mixed languages", () => {
   // Test Slang Inggris
   assert.deepEqual(findMatchedBlockedWords("hey stfu man", blocked), ["stfu"]);
 });
+
+test("exact token matching does not block substrings", () => {
+  const config = {
+    defaultLanguage: "en",
+    languages: {
+      en: {
+        insult: ["idiot"]
+      }
+    }
+  };
+
+  const blocked = buildBlockedSet(config, ["en"]);
+  assert.deepEqual(findMatchedBlockedWords("that was idiotic", blocked), []);
+});
+
+test("normalizeToken strips punctuation consistently", () => {
+  assert.equal(normalizeToken("Bodoh!!!"), "bodoh");
+});

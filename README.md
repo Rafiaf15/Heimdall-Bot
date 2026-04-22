@@ -41,19 +41,25 @@ Message Content Intent yang sudah diaktifkan di dashboard Discord.
 3. Jalankan bot:
    npm start
 
+## Persetujuan Channel Moderasi
+
+Moderasi tidak langsung aktif di semua channel. Admin/moderator harus memilih channel yang diizinkan:
+
+
+ Izin default command: Manage Server. Anda juga bisa menambah role approver via APPROVER_ROLE_IDS di .env.
+
 ## Validasi
 
-- Cek format config:
   npm run check:config
-- Jalankan test moderasi dasar:
   npm test
-- Jalankan keduanya:
   npm run validate:bot
 
 ## Struktur
 
 - src/index.js: listener Discord dan alur moderasi
 - src/moderation.js: exact token matching
+- src/guild-settings.js: penyimpanan channel moderasi per server
 - data/negative-words.json: daftar kata negatif per bahasa/kategori
+- data/guild-settings.json: daftar channel moderasi per guild
 - test/moderation.test.js: test engine moderasi
 - .github/hooks/discord-moderation-validation.json: hook validasi otomatis

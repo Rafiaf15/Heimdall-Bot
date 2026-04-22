@@ -15,14 +15,14 @@
         "brengsek", "bangsat", "keparat"
       ],
       "profanity": [
-        "anjing", "tai", "babi", "kontol",
+        "anjing", "tai lu", "babi", "kontol",
         "memek", "ngentot", "jancok",
-        "kampret", "keparat"
+        "kampret", "keparat","dancok"
       ],
       "slang": [
         "gblk", "bego", "tololll",
         "bgst", "kntl", "mmk",
-        "smpah", "pecndang"
+        "smpah", "pecndang","tlol","mnyt"
       ]
     },
     "en": {
@@ -38,12 +38,12 @@
         "jerk", "bastard"
       ],
       "profanity": [
-        "fuck", "shit", "bitch", "asshole",
+        "fuck","bitch", "asshole",
         "dick", "pussy", "bastard",
         "motherfucker", "damn"
       ],
       "slang": [
-        "wtf", "stfu", "lmao loser",
+        "stfu", "lmao loser",
         "fck", "sht", "btch", "azzhole"
       ]
     }

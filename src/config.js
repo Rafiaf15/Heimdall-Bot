@@ -41,7 +41,9 @@ export function getBotConfig() {
     selectedLanguages: parseCsv(process.env.MOD_LANGUAGE || "id"),
     exemptChannelIds: new Set(parseCsv(process.env.EXEMPT_CHANNEL_IDS)),
     exemptRoleIds: new Set(parseCsv(process.env.EXEMPT_ROLE_IDS)),
+    approverRoleIds: new Set(parseCsv(process.env.APPROVER_ROLE_IDS)),
     allowWords: parseWordSet(process.env.ALLOW_WORDS),
+    noticeDeleteMs: Number.parseInt(process.env.NOTICE_DELETE_MS || "2000", 10),
     warningTemplate,
     wordConfig: loadWordConfig()
   };
