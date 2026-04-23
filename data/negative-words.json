@@ -5,19 +5,18 @@
       "harassment": [
         "bodoh", "tolol", "goblok", "kampungan",
         "dungu", "bloon", "oon", "bego",
-        "gak waras", "sinting", "edan",
-        "kurang ajar","pukimak"
+        "sinting","pukimak","mamat jelek"
       ],
       "insult": [
         "payah", "pecundang",
-        "hina", "tidak berguna",
+        "tidak berguna",
         "lemah", "memalukan",
         "brengsek", "bangsat", "keparat"
       ],
       "profanity": [
         "anjing", "tai lu", "babi", "kontol",
         "memek", "ngentot", "jancok",
-        "kampret", "keparat","dancok","heunceut","ewe", "silit", "jembut","asuw","asu","asw"
+        "keparat","dancok","heunceut","ewe", "silit", "jembut","asuw","asu","asw"
       ],
       "slang": [
         "gblk", "bego", "tololll",
@@ -31,7 +30,7 @@
       "harassment": [
         "stupid", "idiot", "moron",
         "dumb", "brainless", "imbecile",
-        "retarded", "clueless", "ignorant"
+        "retarded", "ignorant"
       ],
       "insult": [
         "loser", "trash",
