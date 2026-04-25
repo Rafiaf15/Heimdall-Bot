@@ -16,6 +16,13 @@ export function extractTokens(text) {
     .filter(Boolean);
 }
 
+export function normalizeFullText(text) {
+  return String(text || "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[^\p{L}\p{N}]+/gu, "");
+}
+
 export function buildBlockedSet(config, selectedLanguages) {
   const languages = config.languages || {};
   const fallbacks = [config.defaultLanguage].filter(Boolean);
@@ -43,15 +50,25 @@ export function buildBlockedSet(config, selectedLanguages) {
 
 export function findMatchedBlockedWords(text, blockedSet, allowSet = new Set()) {
   const tokens = extractTokens(text);
+  const normalizedText = normalizeFullText(text);
+
   const matched = new Set();
 
+  // 1. token-level match (existing)
   for (const token of tokens) {
-    if (allowSet.has(token)) {
-      continue;
-    }
+    if (allowSet.has(token)) continue;
 
     if (blockedSet.has(token)) {
       matched.add(token);
+    }
+  }
+
+  // 2. phrase-level match (NEW)
+  for (const blocked of blockedSet) {
+    if (blocked.length < 4) continue; // optional filter biar hemat performa
+
+    if (normalizedText.includes(blocked)) {
+      matched.add(blocked);
     }
   }
 
