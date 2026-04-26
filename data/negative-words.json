@@ -5,12 +5,12 @@
       "harassment": [
         "bodoh", "tolol", "goblok", "kampungan",
         "dungu", "bloon", "oon", "bego",
-        "sinting","pukimak","mamat jelek","bungul"
+        "sinting","pukimak","bungul","pantek","panteq"
       ],
       "insult": [
         "payah", "pecundang",
         "tidak berguna","brengsek",
-        "bangsat",
+        "bangsat", "skripsi",
         "keparat"
       ],
       "profanity": [
@@ -23,7 +23,7 @@
         "gblk", "bego", "tololll",
         "bgst", "kntl", "mmk",
         "smpah", "pecndang","tlol","mnyt","jnck",
-        "anjg", "kontl", "kehed", "puki","jmbut","jmbt"
+        "anjg", "kontl", "kehed", "puki","jmbut","jmbt","pntk","pntq"
         
       ]
     },
@@ -36,7 +36,7 @@
       "insult": [
         "loser", "trash",
         "pathetic", "useless", "worthless",
-        "disgusting", "failure", "scum",
+        "disgusting", "failure", "scumbag",
         "jerk", "bastard"
       ],
       "profanity": [
@@ -46,7 +46,7 @@
       ],
       "slang": [
         "stfu", "lmao loser",
-        "fck", "sht", "btch", "azzhole"
+        "fck", "sht", "btch", "azzhole","cum"
       ]
     }
   }

@@ -99,6 +99,28 @@ function isExemptMessage(message) {
   return false;
 }
 
+async function sendModerationWarning(message, content) {
+  const botMember = message.guild?.members?.me;
+  const canSendInChannel = Boolean(
+    botMember && message.channel?.permissionsFor?.(botMember)?.has(PermissionFlagsBits.SendMessages)
+  );
+
+  if (canSendInChannel) {
+    try {
+      return await message.channel.send({ content });
+    } catch (error) {
+      console.warn("[moderation] Failed to send channel warning; trying DM fallback", error);
+    }
+  }
+
+  try {
+    return await message.author.send({ content });
+  } catch (error) {
+    console.warn("[moderation] Failed to deliver moderation warning", error);
+    return null;
+  }
+}
+
 function canManageModeration(interaction) {
   const hasManageGuild = interaction.memberPermissions?.has(PermissionFlagsBits.ManageGuild);
   if (hasManageGuild) {
@@ -194,21 +216,21 @@ client.on("messageCreate", async (message) => {
 
   try {
     await message.delete();
-
-    const channelNotice = await message.channel.send({
-      content: `<@${message.author.id}> pesanmu melanggar aturan dan sudah dihapus.`
-    });
-
-    setTimeout(() => {
-      channelNotice.delete().catch(() => {});
-    }, Number.isNaN(config.noticeDeleteMs) ? 2000 : Math.max(config.noticeDeleteMs, 1000));
-
-    console.log(
-      `[moderation] Deleted message by ${message.author.tag}; matched=${matchedWords.join(",")}`
-    );
   } catch (error) {
-    console.error("[moderation] Failed to process violating message", error);
+    console.error("[moderation] Failed to delete violating message", error);
+    return;
   }
+
+  const warningTarget = await sendModerationWarning(message, config.warningTemplate);
+  if (warningTarget) {
+    setTimeout(() => {
+      warningTarget.delete().catch(() => {});
+    }, Number.isNaN(config.noticeDeleteMs) ? 2000 : Math.max(config.noticeDeleteMs, 1000));
+  }
+
+  console.log(
+    `[moderation] Deleted message by ${message.author.tag}; matched=${matchedWords.join(",")}`
+  );
 });
 
 client.login(config.token);
